@@ -9,7 +9,7 @@ ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/tools_r23.0.1-linu
     MAVEN_HOME="/usr/share/maven" \
     GRADLE_HOME="/usr/share/gradle" \
     ANDROID_HOME="/opt/android" \
-    GRADLE_HOME="/opt/gradle-2.14"
+    GRADLE_HOME="/opt/gradle-3.2.1"
 
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION:$ANT_HOME/bin:$MAVEN_HOME/bin
 
@@ -28,10 +28,10 @@ RUN dpkg --add-architecture i386 && \
     chown -R root:root $ANDROID_HOME && \
 
     # Install Gradle
-    wget https://services.gradle.org/distributions/gradle-2.14-bin.zip && \
-    unzip gradle-2.14-bin.zip && \
-    mv gradle-2.14 /opt/ && \
-    rm gradle-2.14-bin.zip && \
+    wget https://services.gradle.org/distributions/gradle-3.2.1-bin.zip && \
+    unzip gradle-3.2.1-bin.zip && \
+    mv gradle-3.2.1 /opt/ && \
+    rm gradle-3.2.1-bin.zip && \
 
     # Clean up
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
