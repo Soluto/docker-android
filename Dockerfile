@@ -11,7 +11,7 @@ ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/tools_r23.0.1-linu
     ANDROID_HOME="/opt/android" \
     GRADLE_HOME="/opt/gradle-2.14"
 
-ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION:$ANT_HOME/bin:$MAVEN_HOME/bin:$GRADLE_HOME/bin
+ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS_VERSION:$ANT_HOME/bin:$MAVEN_HOME/bin
 
 WORKDIR /opt
 
@@ -38,3 +38,4 @@ RUN dpkg --add-architecture i386 && \
     apt-get autoremove -y && \
     apt-get clean
 
+ENV PATH $GRADLE_HOME/bin:$PATH
