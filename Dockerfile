@@ -2,14 +2,13 @@ FROM soluto/java-base:8
 
 MAINTAINER Or Yagel <or@soluto.com>
 
-ENV ANDROID_SDK_URL="https://dl.google.com/android/repository/tools_r23.0.5-linux.zip" \
-    GRADLE_VERSION=2.14.1 \
+ENV GRADLE_VERSION=2.14.1 \
     ANT_HOME="/usr/share/ant" \
     MAVEN_HOME="/usr/share/maven" \
     ANDROID_HOME="/opt/android" \
     GRADLE_HOME="/opt/gradle-${GRADLE_VERSION}"
 
-ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2:$ANDROID_HOME/build-tools/23.0.1:$ANT_HOME/bin:$MAVEN_HOME/bin
+ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/25.0.0:$ANDROID_HOME/build-tools/23.0.2:$ANDROID_HOME/build-tools/23.0.1:$ANT_HOME/bin:$MAVEN_HOME/bin
 
 WORKDIR /opt
 
@@ -50,6 +49,7 @@ RUN echo y | android update sdk --no-ui --all --filter android-19 | grep 'packag
 
 # build tools
 # Please keep these in descending order!
+RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.0 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.3 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.2 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-23.0.1 | grep 'package installed'
