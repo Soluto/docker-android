@@ -32,7 +32,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 #  you should only install the packages you need!
 # To get a full list of available options you can use:
 #  android list sdk --no-ui --all --extended
-# (!!!) Only install one package at a time, as "echo y" will only work for one license!
+# (!!) Only install one package at a time, as "echo y" will only work for one license!
 #       If you don't do it this way you might get "Unknown response" in the logs,
 #         but the android SDK tool **won't** fail, it'll just **NOT** install the package.
 RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'package installed'
