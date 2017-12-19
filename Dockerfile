@@ -2,7 +2,7 @@ FROM soluto/java-base:8
 
 MAINTAINER Or Yagel <or@soluto.com>
 
-ENV GRADLE_VERSION=2.14.1 \
+ENV GRADLE_VERSION=4.4 \
     ANT_HOME="/usr/share/ant" \
     MAVEN_HOME="/usr/share/maven" \
     ANDROID_HOME="/opt/android" \
