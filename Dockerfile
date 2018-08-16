@@ -2,7 +2,7 @@ FROM soluto/java-base:8
 
 MAINTAINER Or Yagel <or@soluto.com>
 
-ENV GRADLE_VERSION=2.14.1 \
+ENV GRADLE_VERSION=4.9 \
     ANT_HOME="/usr/share/ant" \
     MAVEN_HOME="/usr/share/maven" \
     ANDROID_HOME="/opt/android" \
@@ -17,7 +17,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get -qq install -y wget curl maven ant gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386
 
 # Installs Android SDK
-RUN cd /opt && wget -q https://dl.google.com/android/repository/tools_r25.2.4-linux.zip -O android-sdk-tools.zip && \
+RUN cd /opt && wget -q https://dl.google.com/android/repository/build-tools_r28.0.2-linux.zip -O android-sdk-tools.zip && \
     cd /opt && unzip -q android-sdk-tools.zip && \
     mkdir -p ${ANDROID_HOME} && \
     cd /opt && mv tools/ ${ANDROID_HOME}/tools/ && \
