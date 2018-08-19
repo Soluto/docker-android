@@ -40,6 +40,7 @@ RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'pa
 # SDKs
 # Please keep these in descending order!
 RUN echo y | android update sdk --no-ui --all --filter android-28 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter android-27 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-26 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
