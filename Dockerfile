@@ -17,7 +17,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get -qq install -y wget curl maven ant gradle libncurses5:i386 libstdc++6:i386 zlib1g:i386
 
 # Installs Android SDK
-RUN cd /opt && wget -q https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -O android-sdk-tools.zip && \
+RUN cd /opt && wget -q https://dl.google.com/android/repository/tools_r25.2.4-linux.zip -O android-sdk-tools.zip && \
     cd /opt && unzip -q android-sdk-tools.zip && \
     mkdir -p ${ANDROID_HOME} && \
     cd /opt && mv tools/ ${ANDROID_HOME}/tools/ && \
@@ -39,6 +39,7 @@ RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'pa
 
 # SDKs
 # Please keep these in descending order!
+RUN echo y | android update sdk --no-ui --all --filter android-28 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-26 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
@@ -50,6 +51,7 @@ RUN echo y | android update sdk --no-ui --all --filter android-19 | grep 'packag
 
 # build tools
 # Please keep these in descending order!
+RUN echo y | android update sdk --no-ui --all --filter build-tools-28.0.2 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.3 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.1 | grep 'package installed'
