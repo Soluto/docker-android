@@ -2,7 +2,7 @@ FROM soluto/java-base:8
 
 MAINTAINER Or Yagel <or@soluto.com>
 
-ENV GRADLE_VERSION=2.14.1 \
+ENV GRADLE_VERSION=5.4.1 \
     ANT_HOME="/usr/share/ant" \
     MAVEN_HOME="/usr/share/maven" \
     ANDROID_HOME="/opt/android" \
@@ -39,6 +39,9 @@ RUN echo y | android update sdk --no-ui --all --filter platform-tools | grep 'pa
 
 # SDKs
 # Please keep these in descending order!
+RUN echo y | android update sdk --no-ui --all --filter android-29 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter android-28 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter android-27 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-26 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-25 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter android-24 | grep 'package installed'
@@ -50,6 +53,12 @@ RUN echo y | android update sdk --no-ui --all --filter android-19 | grep 'packag
 
 # build tools
 # Please keep these in descending order!
+
+RUN echo y | android update sdk --no-ui --all --filter build-tools-29.0.3 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter build-tools-28.0.3 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter build-tools-28.0.2 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter build-tools-26.0.3 | grep 'package installed'
+RUN echo y | android update sdk --no-ui --all --filter build-tools-27.0.3 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.3 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.2 | grep 'package installed'
 RUN echo y | android update sdk --no-ui --all --filter build-tools-25.0.1 | grep 'package installed'
